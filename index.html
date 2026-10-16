@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Salón de Belleza VANESA</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#fff8fb;
+    color:#4b3039;
+}
+
+/* MENÚ */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    box-shadow:0 3px 15px #d9c5cc;
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#bd4c75;
+    font-size:27px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#533640;
+    font-weight:bold;
+    margin-left:20px;
+}
+
+nav a:hover{
+    color:#c84e79;
+}
+
+/* PORTADA */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:70px 9%;
+    background:linear-gradient(120deg,#fff1f6,#f6d1de);
+}
+
+.hero-text{
+    max-width:580px;
+}
+
+.etiqueta{
+    color:#bd4c75;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.05;
+    color:#4e303a;
+}
+
+.hero h1 span{
+    color:#bd4c75;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.7;
+    margin:25px 0;
+}
+
+.boton{
+    display:inline-block;
+    padding:15px 25px;
+    border-radius:30px;
+    background:#bd4c75;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.boton:hover{
+    background:#913956;
+    transform:scale(1.04);
+}
+
+.hero-img img{
+    width:420px;
+    height:500px;
+    object-fit:cover;
+    border-radius:220px 220px 25px 25px;
+    box-shadow:0 15px 35px #b994a1;
+}
+
+/* ANUNCIO */
+
+.anuncio{
+    text-align:center;
+    padding:55px 20px;
+    background:#bd4c75;
+    color:white;
+}
+
+.anuncio h2{
+    font-size:42px;
+    margin:15px 0;
+}
+
+.anuncio p{
+    font-size:18px;
+}
+
+/* SECCIONES */
+
+.seccion{
+    max-width:1150px;
+    margin:auto;
+    padding:80px 25px;
+}
+
+.titulo{
+    text-align:center;
+    color:#bd4c75;
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.subtitulo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+/* SERVICIOS */
+
+.servicios{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 6px 20px #e7d3da;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.card h3{
+    color:#bd4c75;
+    margin:18px 10px 10px;
+}
+
+.card p{
+    line-height:1.5;
+    padding:0 18px 25px;
+}
+
+/* PRESENTACIÓN */
+
+.presentacion{
+    background:#fde5ed;
+    display:flex;
+    align-items:center;
+    gap:60px;
+    padding:80px 10%;
+}
+
+.presentacion img{
+    width:45%;
+    max-height:430px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+.presentacion-texto{
+    flex:1;
+}
+
+.presentacion h2{
+    color:#bd4c75;
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.presentacion p{
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+/* QUÉ OFRECEMOS */
+
+.lista{
+    max-width:800px;
+    margin:35px auto;
+    display:grid;
+    gap:15px;
+}
+
+.lista div{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #e6d3da;
+}
+
+/* POR QUÉ */
+
+.porque{
+    text-align:center;
+    background:#fff0f5;
+    padding:80px 8%;
+}
+
+.porque h2{
+    color:#bd4c75;
+    font-size:38px;
+}
+
+.porque > p{
+    max-width:750px;
+    margin:20px auto 40px;
+    line-height:1.7;
+}
+
+.ventajas{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.ventaja{
+    background:white;
+    width:280px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 18px #e5d2d9;
+}
+
+.ventaja .icono{
+    font-size:42px;
+}
+
+.ventaja h3{
+    color:#bd4c75;
+    margin:12px;
+}
+
+/* PRECIOS */
+
+.precios{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.precio{
+    background:white;
+    padding:30px 15px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 5px 15px #e5d2d9;
+}
+
+.precio h3{
+    margin-bottom:15px;
+}
+
+.precio strong{
+    color:#bd4c75;
+    font-size:25px;
+}
+
+/* GALERÍA */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.galeria img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.galeria img:hover{
+    transform:scale(1.04);
+}
+
+/* CONTACTO */
+
+.contacto{
+    text-align:center;
+    padding:80px 20px;
+    background:#fde2eb;
+}
+
+.contacto h2{
+    color:#bd4c75;
+    font-size:40px;
+    margin-bottom:25px;
+}
+
+.contacto p{
+    font-size:18px;
+    margin:12px;
+}
+
+.contacto .boton{
+    margin-top:20px;
+}
+
+/* PIE */
+
+footer{
+    background:#bd4c75;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+footer p{
+    margin-top:10px;
+}
+
+/* CELULAR */
+
+@media(max-width:900px){
+
+    .servicios,
+    .precios{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .galeria{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-img{
+        margin-top:45px;
+    }
+
+    .presentacion{
+        flex-direction:column;
+    }
+
+    .presentacion img{
+        width:100%;
+    }
+}
+
+@media(max-width:600px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:4px;
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero-img img{
+        width:300px;
+        height:380px;
+    }
+
+    .servicios,
+    .precios,
+    .galeria{
+        grid-template-columns:1fr;
+    }
+
+    .anuncio h2{
+        font-size:30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENÚ -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+VANESA
+</div>
+
+<div>
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#precios">Precios</a>
+<a href="#contacto">Contacto</a>
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- PORTADA -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-text">
+
+<div class="etiqueta">
+✨ BELLEZA • CUIDADO • ESTILO ✨
+</div>
+
+<h1>
+SALÓN DE<br>
+<span>BELLEZA VANESA</span>
+</h1>
+
+<p>
+Un espacio creado para cuidar tu imagen,
+resaltar tu belleza y hacerte sentir
+especial en cada visita.
+</p>
+
+<a href="#servicios" class="boton">
+VER NUESTROS SERVICIOS
+</a>
+
+</div>
+
+
+<div class="hero-img">
+
+<img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=80">
+
+</div>
+
+</section>
+
+
+<!-- ANUNCIO -->
+
+<section class="anuncio">
+
+<p>💗 PROMOCIÓN ESPECIAL 💗</p>
+
+<h2>
+¡TU BELLEZA MERECE UN MOMENTO ESPECIAL!
+</h2>
+
+<p>
+Ven a conocernos y disfruta de nuestros servicios
+de belleza y cuidado personal.
+</p>
+
+</section>
+
+
+<!-- SERVICIOS -->
+
+<section class="seccion" id="servicios">
+
+<h2 class="titulo">
+Nuestros Servicios
+</h2>
+
+<p class="subtitulo">
+Ofrecemos diferentes opciones para cuidar
+tu imagen y resaltar tu belleza.
+</p>
+
+
+<div class="servicios">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=600&q=80">
+
+<h3>💇‍♀️ Cabello</h3>
+
+<p>
+Cortes, peinados y tratamientos
+para el cuidado del cabello.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80">
+
+<h3>💅 Manicure</h3>
+
+<p>
+Cuidado y decoración de uñas
+para diferentes ocasiones.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=600&q=80">
+
+<h3>💄 Maquillaje</h3>
+
+<p>
+Maquillaje para eventos y
+ocasiones especiales.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80">
+
+<h3>✨ Tratamientos</h3>
+
+<p>
+Tratamientos pensados para
+el cuidado y bienestar.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOSOTROS -->
+
+<section class="presentacion" id="nosotros">
+
+<img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80">
+
+
+<div class="presentacion-texto">
+
+<h2>
+Sobre nuestro salón
+</h2>
+
+<p>
+El <strong>Salón de Belleza VANESA</strong>
+es un emprendimiento dedicado a brindar
+servicios de belleza y cuidado personal.
+</p>
+
+<p>
+Nuestro propósito es ofrecer una atención
+amable, responsable y de calidad,
+en un ambiente cómodo y agradable.
+</p>
+
+<p>
+Buscamos que cada cliente pueda disfrutar
+de un momento especial mientras cuida
+su imagen y bienestar.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- QUÉ OFRECEMOS -->
+
+<section class="seccion">
+
+<h2 class="titulo">
+¿Qué ofrecemos?
+</h2>
+
+<div class="lista">
+
+<div>✓ Atención amable y personalizada</div>
+
+<div>✓ Servicios de belleza y cuidado personal</div>
+
+<div>✓ Ambiente agradable y cómodo</div>
+
+<div>✓ Productos adecuados para nuestros servicios</div>
+
+<div>✓ Precios accesibles</div>
+
+<div>✓ Responsabilidad y dedicación</div>
+
+</div>
+
+</section>
+
+
+<!-- POR QUÉ ELEGIRNOS -->
+
+<section class="porque">
+
+<h2>
+¿Por qué elegirnos?
+</h2>
+
+<p>
+Porque buscamos brindar un servicio responsable,
+con buena atención y dedicación en cada trabajo.
+Nuestro objetivo es que nuestros clientes
+se sientan cómodos y satisfechos.
+</p>
+
+
+<div class="ventajas">
+
+<div class="ventaja">
+
+<img src="atencion.jpg"width="250"height="150">
+
+<h3>Atención</h3>
+
+<p>
+Atendemos con respeto,
+amabilidad y dedicación.
+</p>
+
+</div>
+
+
+<div class="ventaja">
+
+<img src="fleco.jpg"width="250"height="150">
+
+<h3>Calidad</h3>
+
+<p>
+Buscamos realizar cada
+servicio de la mejor manera.
+</p>
+
+</div>
+
+
+<div class="ventaja">
+
+<img sre="muebles comodos.jpg"width="260"height="160">
+
+
+<h3>Comodidad</h3>
+
+<p>
+Un espacio agradable para
+disfrutar tu momento.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRECIOS -->
+
+<section class="seccion" id="precios">
+
+<h2 class="titulo">
+Lista de precios
+</h2>
+
+<div class="precios">
+
+<div class="precio">
+
+<h3>Corte de cabello</h3>
+
+<strong>Bs. 30</strong>
+
+</div>
+
+
+<div class="precio">
+
+<h3>Manicure</h3>
+
+<strong>Bs. 25</strong>
+
+</div>
+
+
+<div class="precio">
+
+<h3>Maquillaje</h3>
+
+<strong>Bs. 60</strong>
+
+</div>
+
+
+<div class="precio">
+
+<h3>Tratamiento capilar</h3>
+
+<strong>Bs. 50</strong>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GALERÍA -->
+
+<section class="seccion">
+
+<h2 class="titulo">
+Galería
+</h2>
+
+<p class="subtitulo">
+Conoce algunos ejemplos de nuestro trabajo.
+</p>
+
+<div class="galeria">
+
+<img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80">
+
+<img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=700&q=80">
+
+<img src="6.jpg">
+
+<img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=700&q=80">
+
+</div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section class="contacto" id="contacto">
+
+<h2>
+¡Visítanos!
+</h2>
+
+<p>📍 Avenida de las Américas</p>
+
+<p>💗 Salón de Belleza VANESA</p>
+
+<p>📱 Atención y reservas por WhatsApp</p>
+
+<a
+href="https://wa.me/73462491"
+target="_blank"
+class="boton">
+
+ESCRÍBENOS POR WHATSAPP
+
+</a>
+
+</section>
+
+
+<!-- PIE -->
+
+<footer>
+
+<h3>
+SALÓN DE BELLEZA VANESA
+</h3>
+
+<p>
+Tu belleza, nuestro compromiso 💗
+</p>
+
+<p>
+© 2026 Salón de Belleza VANESA
+</p>
+
+</footer>
+
+</body>
+</html>
